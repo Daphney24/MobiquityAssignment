@@ -18,7 +18,7 @@ The task is:
 
 Framework Architecture
 --------------
-    MobiquityAssessent
+    MobiquityAssessment
 	   |
        |_src/main/java
        |  |_org.base.test

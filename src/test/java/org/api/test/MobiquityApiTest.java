@@ -2,47 +2,21 @@ package org.api.test;
 
 
 import java.util.List;
-import java.util.Map;
-import java.util.Properties;
 
-import org.base.test.PropertyReader;
 import org.model.test.Comment;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.LogStatus;
 
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import utils.ExtentReportListener;
 
+public class MobiquityApiTest extends CoreClass {
 
-@Listeners(ExtentReportListener.class)
-public class MobiquityApiTest extends ExtentReportListener{
-
-	private  RequestSpecification requestSpec;
-	private  Properties prop;
-
-	private int foundUserId = 999 ;
+	private int foundUserId = 9 ;
 	private  List<Integer> postIds = null; 
 
-
-	@BeforeTest
-	public void setup()  {
-		PropertyReader propertyReader = new PropertyReader();
-		prop = propertyReader.getProp();
-		String url = prop.getProperty("api.baseUri");
-		requestSpec = new RequestSpecBuilder()
-				.setBaseUri(url)
-				.setContentType(ContentType.JSON)
-				.build();	
-		test.log(LogStatus.PASS, "Setup is Succcessfully");
-	}
 
 	@Test(priority = 1)
 	@Parameters("username")
@@ -52,12 +26,12 @@ public class MobiquityApiTest extends ExtentReportListener{
 			Response response =  TestUtils.getRequestWithRequestParam(requestSpec,TestUtils.USERID_REQUEST_PARAM, username, userPath);
 			foundUserId = (Integer) response.jsonPath().getList("id").get(0);
 			Assert.assertTrue(!(foundUserId==999), "No user found with user "+username);
-			test.log(LogStatus.PASS, "Succcessfully validated status code:: " + response.getStatusCode());
+			test.log(LogStatus.PASS, TestUtils.SUCCCESSFULLY_VALIDATED_STATUS_CODE+ response.getStatusCode());
 		}catch (AssertionError e) {
-			test.log(LogStatus.FAIL, "Test Assertion failed,  logs are:: "+ e.fillInStackTrace());
+			test.log(LogStatus.FAIL, TestUtils.TEST_ASSERTION_FAILED_MSG+ e.fillInStackTrace());
 			Assert.fail();
 		}catch(Exception e) {
-			test.log(LogStatus.FAIL,"Error thrown is: "+e.fillInStackTrace());
+			test.log(LogStatus.FAIL,TestUtils.ERROR_MSG +e.fillInStackTrace());
 			Assert.fail();
 		}							
 	}
@@ -68,12 +42,12 @@ public class MobiquityApiTest extends ExtentReportListener{
 		try {
 			Response response = TestUtils.getRequestWithRequestParam(requestSpec, TestUtils.USERID_REQUEST_PARAM , foundUserId+"", postPath);
 			postIds = response.jsonPath().getList("id");
-			test.log(LogStatus.PASS, "Succcessfully validated status code:: " + response.getStatusCode());
+			test.log(LogStatus.PASS, TestUtils.SUCCCESSFULLY_VALIDATED_STATUS_CODE + response.getStatusCode());
 		}catch (AssertionError e) {
-			test.log(LogStatus.FAIL, "Test Assertion failed,  logs are:: "+ e.fillInStackTrace());
+			test.log(LogStatus.FAIL, TestUtils.TEST_ASSERTION_FAILED_MSG+ e.fillInStackTrace());
 			Assert.fail();
 		}catch(Exception e) {
-			test.log(LogStatus.FAIL,"Error thrown is: "+e.fillInStackTrace());
+			test.log(LogStatus.FAIL,TestUtils.ERROR_MSG +e.fillInStackTrace());
 			Assert.fail();
 		}		
 	}
@@ -83,15 +57,14 @@ public class MobiquityApiTest extends ExtentReportListener{
 	public void testCommentEmailFormat() {
 		String commentPath = prop.getProperty("api.path.comments");
 		List<Comment> commentsForAllPost = TestUtils.getComentsByPost(requestSpec, postIds, commentPath);
-		
-	   for(Comment comment : commentsForAllPost) {
-//		   System.out.println(comment);
-		   boolean checkEmail = TestUtils.isValid(comment.getEmail());
-		   System.out.println("Comment validation  for "+comment.getEmail()+"   "+checkEmail);
-	   }
+
+		for(Comment comment : commentsForAllPost) {
+			boolean checkEmail = TestUtils.isValid(comment.getEmail());
+			System.out.println("Comment validation  for "+comment.getEmail()+"   "+checkEmail);
+		}
 	}
 
-	
+
 
 
 

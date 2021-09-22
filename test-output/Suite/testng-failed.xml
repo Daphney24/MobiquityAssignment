@@ -6,7 +6,10 @@
     <classes>
       <class name="org.api.test.MobiquityApiTest">
         <methods>
+          <include name="testUserWithUsername"/>
+          <include name="afterSuite"/>
           <include name="testCommentEmailFormat"/>
+          <include name="testPostByUser"/>
           <include name="setup"/>
         </methods>
       </class> <!-- org.api.test.MobiquityApiTest -->

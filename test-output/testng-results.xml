@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-22T16:02:53Z" name="Suite" finished-at="2021-09-22T16:02:57Z" duration-ms="3224">
+  <suite started-at="2021-09-22T17:32:41Z" name="Suite" finished-at="2021-09-22T17:32:45Z" duration-ms="3365">
     <groups>
     </groups>
-    <test started-at="2021-09-22T16:02:53Z" name="Test" finished-at="2021-09-22T16:02:57Z" duration-ms="3224">
+    <test started-at="2021-09-22T17:32:41Z" name="Test" finished-at="2021-09-22T17:32:45Z" duration-ms="3365">
       <class name="org.api.test.MobiquityApiTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:org.api.test.MobiquityApiTest@7a220c9a]" started-at="2021-09-22T16:02:54Z" name="setup" finished-at="2021-09-22T16:02:54Z" duration-ms="575" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:org.api.test.MobiquityApiTest@7a220c9a]" started-at="2021-09-22T17:32:41Z" name="setup" finished-at="2021-09-22T17:32:42Z" duration-ms="584" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testUserWithUsername(java.lang.String)[pri:1, instance:org.api.test.MobiquityApiTest@7a220c9a]" started-at="2021-09-22T16:02:54Z" name="testUserWithUsername" finished-at="2021-09-22T16:02:55Z" duration-ms="1162" status="PASS">
+        <test-method signature="testUserWithUsername(java.lang.String)[pri:1, instance:org.api.test.MobiquityApiTest@7a220c9a]" started-at="2021-09-22T17:32:42Z" name="testUserWithUsername" finished-at="2021-09-22T17:32:43Z" duration-ms="1216" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,11 +22,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUserWithUsername -->
-        <test-method signature="testPostByUser()[pri:2, instance:org.api.test.MobiquityApiTest@7a220c9a]" started-at="2021-09-22T16:02:55Z" name="testPostByUser" finished-at="2021-09-22T16:02:55Z" duration-ms="148" status="PASS">
+        <test-method signature="testPostByUser()[pri:2, instance:org.api.test.MobiquityApiTest@7a220c9a]" started-at="2021-09-22T17:32:43Z" name="testPostByUser" finished-at="2021-09-22T17:32:43Z" duration-ms="109" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testPostByUser -->
-        <test-method signature="testCommentEmailFormat()[pri:3, instance:org.api.test.MobiquityApiTest@7a220c9a]" started-at="2021-09-22T16:02:55Z" name="testCommentEmailFormat" finished-at="2021-09-22T16:02:57Z" duration-ms="1179" status="PASS">
+        <test-method signature="testCommentEmailFormat()[pri:3, instance:org.api.test.MobiquityApiTest@7a220c9a]" started-at="2021-09-22T17:32:43Z" name="testCommentEmailFormat" finished-at="2021-09-22T17:32:45Z" duration-ms="1297" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCommentEmailFormat -->

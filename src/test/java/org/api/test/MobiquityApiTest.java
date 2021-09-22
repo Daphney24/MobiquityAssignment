@@ -2,6 +2,7 @@ package org.api.test;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import org.base.test.PropertyReader;
@@ -80,16 +81,17 @@ public class MobiquityApiTest extends ExtentReportListener{
 
 	@Test(priority = 3)
 	public void testCommentEmailFormat() {
-		String commentPath = prop.getProperty("api.path.comments"); 
-		for(int postId : postIds) {
-			System.out.println("  ---- "+postId);
-			Response response = TestUtils.getRequestWithRequestParam(requestSpec, TestUtils.POSTID_REQUEST_PARAM, postId+"", commentPath);
-			response.prettyPrint();
-			Comment[] comment = response.as(Comment[].class);
-			System.out.println(comment);
-		}
-
+		String commentPath = prop.getProperty("api.path.comments");
+		List<Comment> commentsForAllPost = TestUtils.getComentsByPost(requestSpec, postIds, commentPath);
+		
+	   for(Comment comment : commentsForAllPost) {
+//		   System.out.println(comment);
+		   boolean checkEmail = TestUtils.isValid(comment.getEmail());
+		   System.out.println("Comment validation  for "+comment.getEmail()+"   "+checkEmail);
+	   }
 	}
+
+	
 
 
 

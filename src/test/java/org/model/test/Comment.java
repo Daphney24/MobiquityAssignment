@@ -1,17 +1,17 @@
 package org.model.test;
 
-public class Comments {
+public class Comment {
 	private int postId;
 	private int id;
 	private String name;
 	private String email;
 	private String body;
 	
-	public Comments() {
+	public Comment() {
 		super();
 	}
 
-	public Comments(int postId, int id, String name, String email, String body) {
+	public Comment(int postId, int id, String name, String email, String body) {
 		super();
 		this.postId = postId;
 		this.id = id;
@@ -39,5 +39,14 @@ public class Comments {
 	public String getBody() {
 		return body;
 	}
+
+	@Override
+	public String toString() {
+		return "Comment [postId=" + postId + ", id=" + id + ", name=" + name + ", email=" + email + ", body=" + body
+				+ "]";
+	}
+	
+	
+	
 	
 }

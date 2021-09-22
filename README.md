@@ -29,9 +29,9 @@ Framework Architecture
        |  |_config.properties
 	   |_src/test/java
        |  |_org.api.test
-	   |  |  |_CoreClass.java
-     |  |  |_MobiquityApiTest.java
-     |  |  |_TestUtils.java
+       |  |  |_CoreClass.java
+       |  |  |_MobiquityApiTest.java
+       |  |  |_TestUtils.java
        |  |_org.model.test
        |  |  |_Comment.java
        |  |  |_Posts.java

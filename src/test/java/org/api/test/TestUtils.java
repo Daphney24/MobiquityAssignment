@@ -10,6 +10,13 @@ import io.restassured.specification.RequestSpecification;
 public class TestUtils {
 	
 	private static final int SUCCESS_STATUS_CODE = 200;
+	
+	
+	public static final String USERNAME_REQUEST_PARAM = "username";
+	public static final String USERID_REQUEST_PARAM = "userId";
+	public static final String POSTID_REQUEST_PARAM = "postId";
+	
+	
 
 	public static Response getRequestWithRequestParam(RequestSpecification requestSpec,String queryParam ,String username, String path) throws AssertionError {
 		Response response = given().
@@ -24,3 +31,4 @@ public class TestUtils {
 		return response;
 	}
 }
+

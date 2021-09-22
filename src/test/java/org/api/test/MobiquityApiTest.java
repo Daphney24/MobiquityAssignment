@@ -57,10 +57,15 @@ public class MobiquityApiTest extends CoreClass {
 	public void testCommentEmailFormat() {
 		String commentPath = prop.getProperty("api.path.comments");
 		List<Comment> commentsForAllPost = TestUtils.getComentsByPost(requestSpec, postIds, commentPath);
-
 		for(Comment comment : commentsForAllPost) {
 			boolean checkEmail = TestUtils.isValid(comment.getEmail());
-			System.out.println("Comment validation  for "+comment.getEmail()+"   "+checkEmail);
+			int postId = comment.getPostId();
+			try {
+				Assert.assertTrue(checkEmail);
+				test.log(LogStatus.PASS, "Email validation Success for comment"+comment.getId()+"Email :: "+comment.getEmail()+" for post id "+postId);				
+			}catch (AssertionError e) {
+				test.log(LogStatus.FAIL,"Email validation  Failed for comment"+comment.getId()+"Email :: "+comment.getEmail()+" for post id "+postId+"with error"+e.getMessage());
+			}
 		}
 	}
 

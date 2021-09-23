@@ -2,14 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
-    <parameter name="username" value="Delphine"/>
+    <parameter name="username" value="1Delphine"/>
     <classes>
       <class name="org.api.test.MobiquityApiTest">
         <methods>
-          <include name="testUserWithUsername"/>
+          <include name="testUserWithUsername" invocation-numbers="0"/>
           <include name="afterSuite"/>
-          <include name="testCommentEmailFormat"/>
-          <include name="testPostByUser"/>
           <include name="setup"/>
         </methods>
       </class> <!-- org.api.test.MobiquityApiTest -->

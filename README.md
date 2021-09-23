@@ -56,23 +56,37 @@ Building Up the Framework
 
 Setup Instructions
 --------------
-Clone the repo from below copmmand or download zip and set it up in your local workspace.
+
+Cloning & Importing the Project
+
+1. Clone the repo from below copmmand or download zip and set it up in your local workspace.
 ```
 git clone https://github.com/Daphney24/MobiquityAssignment.git
 ```
+2. Import the project in Eclipse/IntelliJ
+
+File->Open Projects from File Systems->Browse the cloned directory->Click on Finish
 
 Verify Installation and Running test
 --------------
-Use Maven:
-	
-Go to your project directory from terminal and hit following commands
+
+Running Tests:
+
+1. You can run the tests directly from the Eclipse/IntelliJ IDE, by right-clicking the testng.xml file and Run As->TestNG Suite
+
+2. For Windows users: 
+Go to your maven project location , open cmd prompt and hit following command
 ```
 mvn test
-```
+```	
 	
+### Reporting
 	
-### Reporters
-	
-Once you run the tests the reports will be generated in Extent Reports format to communicate pass/failure.It also includes the default HTML reports as well.
+Once you run the tests the reports will be generated in Extent Reports format to communicate pass/failure into their respective `/target` directories after a successful run.It also includes the default HTML reports as well.
 
-Note: To look at the results in IDE, open the folder test-output/Report/test/ExtentReport.html 
+Note: 
+To look at the results in IDE, open the folder test-output/Report/test/ExtentReport.html 
+
+To look at results in Diretory, traverse to :MobiquityAssignment\test-output\Report\test and double clik on "ExtentReport.html" file
+
+

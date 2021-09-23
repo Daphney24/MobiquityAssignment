@@ -85,8 +85,9 @@ mvn test
 Once you run the tests the reports will be generated in Extent Reports format to communicate pass/failure into their respective `/target` directories after a successful run.It also includes the default HTML reports as well.
 
 Note: 
-To look at the results in IDE, open the folder test-output/Report/test/ExtentReport.html 
 
-To look at results in Diretory, traverse to :MobiquityAssignment\test-output\Report\test and double clik on "ExtentReport.html" file
+To look at the results in IDE : open the folder test-output/Report/test/ExtentReport.html 
+
+To look at results in Directory, traverse to : MobiquityAssignment\test-output\Report\test and double clik on "ExtentReport.html" file
 
 

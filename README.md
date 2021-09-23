@@ -1,4 +1,4 @@
-# MobiquityAssessment [![Build Status](https://circleci.com/gh/Daphney24/MobiquityAssignment?style=shield)](https://app.circleci.com/pipelines/github/Daphney24/MobiquityAssignment)
+# MobiquityAssessment [![Build Status](https://circleci.com/gh/Daphney24/MobiquityAssignment.svg?style=svg)](https://app.circleci.com/pipelines/github/Daphney24/MobiquityAssignment)
 
 Tech Stack: Java , RestAssured , TestNG, Maven
 

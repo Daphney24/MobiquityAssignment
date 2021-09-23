@@ -7,4 +7,4 @@ workflows:
   maven_test:
     jobs:
       - maven/test:
-          test_results_path: /project/test-output/Report/test/
+          test_results_path: /home/circleci/project/test-output/Report/test/

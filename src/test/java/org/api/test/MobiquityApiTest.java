@@ -19,7 +19,6 @@ public class MobiquityApiTest extends CoreClass {
 	@Test(priority = 1)
 	@Parameters("username")
 	public void testUserWithUsername(String username) {
-		String userPath = prop.getProperty("api.path.users");
 		try {
 			Response response = TestUtils.getRequestWithRequestParam(requestSpec, TestUtils.USERNAME_REQUEST_PARAM,
 					username, userPath);
@@ -36,8 +35,25 @@ public class MobiquityApiTest extends CoreClass {
 	}
 
 	@Test(priority = 2)
+	public void testEmailFormatForFoundUser() {
+		try {
+			Response response = TestUtils.getRequestWithPathParam(requestSpec, foundUserId, userPath + "/{userId}");
+			String userEmail = response.jsonPath().getString("email");
+			boolean checkEmail = TestUtils.isValid(userEmail);
+			Assert.assertTrue(checkEmail);
+			test.log(LogStatus.PASS,
+					"Successfully validate email for user [" + foundUserId + "]  Email :: [" + userEmail + "]");
+		} catch (AssertionError e) {
+			test.log(LogStatus.FAIL, TestUtils.TEST_ASSERTION_FAILED_MSG + e.fillInStackTrace());
+			Assert.fail();
+		} catch (Exception e) {
+			test.log(LogStatus.FAIL, TestUtils.ERROR_MSG + e.fillInStackTrace());
+			Assert.fail();
+		}
+	}
+
+	@Test(priority = 3)
 	public void testPostByUser() {
-		String postPath = prop.getProperty("api.path.posts");
 		if (foundUserId != -9999) {
 			try {
 				Response response = TestUtils.getRequestWithRequestParam(requestSpec, TestUtils.USERID_REQUEST_PARAM,
@@ -56,10 +72,8 @@ public class MobiquityApiTest extends CoreClass {
 		}
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 4)
 	public void testCommentEmailFormat() {
-		String commentPath = prop.getProperty("api.path.comments");
-
 		if (postIds != null) {
 			List<Comment> commentsForAllPost = TestUtils.getComentsByPost(requestSpec, postIds, commentPath);
 			boolean failChecker = false;

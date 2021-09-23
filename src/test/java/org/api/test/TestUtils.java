@@ -25,11 +25,13 @@ public class TestUtils {
 	public static final String SUCCCESSFULLY_VALIDATED_STATUS_CODE = "Succcessfully validated status code:: ";
 	public static final String EMAIL_CHECK_SUCCESS = "Email check is successfull for post ";
 	public static final String EMAIL_CHECK_FAILED = "Email check is successfull for post ";
+	
+	
 
-	public static Response getRequestWithRequestParam(RequestSpecification requestSpec,String queryParam ,String username, String path) throws AssertionError {
+	public static Response getRequestWithRequestParam(RequestSpecification requestSpec,String queryParam ,String queryParamValue, String path) throws AssertionError {
 		Response response = given().
 				spec(requestSpec).
-				queryParam(queryParam, username).
+				queryParam(queryParam, queryParamValue).
 				and().
 				get(path).
 				then().
@@ -52,8 +54,18 @@ public class TestUtils {
 	public  static boolean isValid(String email) {
 		String regex = "^[\\w-\\.+]*[\\w-\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 		return email.matches(regex);
-		
-		
+	}
+	
+	public static Response getRequestWithPathParam(RequestSpecification requestSpec,int pathParamValue ,String path) throws AssertionError {
+		Response response = given().
+				spec(requestSpec).
+				and().
+				get(path,pathParamValue).
+				then().
+				extract().
+				response();
+		Assert.assertEquals(SUCCESS_STATUS_CODE, response.getStatusCode());
+		return response;
 	}
 }
 

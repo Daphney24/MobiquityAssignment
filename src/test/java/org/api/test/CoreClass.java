@@ -17,18 +17,20 @@ import utils.ExtentReportListener;
 @Listeners(ExtentReportListener.class)
 public class CoreClass extends ExtentReportListener {
 
-	public  RequestSpecification requestSpec;
-	public  Properties prop;
+	public RequestSpecification requestSpec;
+	public String userPath;
+	public String postPath;
+	public String commentPath;
 
 	@BeforeTest
-	public void setup()  {
+	public void setup() {
 		PropertyReader propertyReader = new PropertyReader();
-		prop = propertyReader.getProp();
+		Properties prop = propertyReader.getProp();
 		String url = prop.getProperty("api.baseUri");
-		requestSpec = new RequestSpecBuilder()
-				.setBaseUri(url)
-				.setContentType(ContentType.JSON)
-				.build();	
+		userPath = prop.getProperty("api.path.users");
+		postPath = prop.getProperty("api.path.posts");
+		commentPath = prop.getProperty("api.path.comments");
+		requestSpec = new RequestSpecBuilder().setBaseUri(url).setContentType(ContentType.JSON).build();
 		test.log(LogStatus.PASS, "Setup is Succcessfully");
 	}
 
@@ -36,6 +38,5 @@ public class CoreClass extends ExtentReportListener {
 	public void afterSuite() {
 		System.out.println("Execution Completed");
 	}
-
 
 }
